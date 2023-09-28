@@ -1,0 +1,8 @@
+
+<p-sidebar class="section-sidenav"  [dismissible]="false" 
+[showCloseIcon]="false" [(visible)]="sidebarVisible"
+[modal]="false"  position="left">
+<div class="flex justify-content-center">
+    <p-tree  selectionMode="single"  (onNodeSelect)="onNodeSelect($event)" class="w-full md:w-30rem" [value]="menus"></p-tree>
+</div>
+</p-sidebar>

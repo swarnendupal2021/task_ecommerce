@@ -1,0 +1,16 @@
+::ng-deep .p-sidebar-left {
+    top: 73px !important;
+    left: 21px !important;
+    width: 20rem;
+    height: 76%  !important;
+}
+
+::ng-deep .p-tree {
+    border: 0px !important;
+   
+    padding: 0px !important;
+}
+::ng-deep .p-treenode-label{
+color: blue;
+ cursor: pointer;
+}

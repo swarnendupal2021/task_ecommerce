@@ -1,0 +1,49 @@
+<button pButton pRipple label="Add New" class="p-button-success" (click)="addNewItem()" value="Add New"></button>
+<br><br>
+<div class="addNewForm">
+
+    <form *ngIf="isAddNewItem || isUpadteItem">
+
+        <input type="text" placeholder="Enter Name" pInputText name="name" [(ngModel)]="formData.name" />
+        &nbsp; &nbsp;
+      
+        <p-multiSelect placeholder="Enter Values" [options]="listOfValues" name="values"
+         [(ngModel)]="formData.values"
+           ></p-multiSelect>
+           &nbsp;&nbsp;
+        <button [disabled]="!(formData.name && formData.values)" pButton pRipple (click)="onSubmit()" label="Submit" class="p-button-success"></button>
+
+    </form>
+    <br><br>
+
+</div>
+<div *ngIf="listOfdata?.length else noData">
+
+    <p-table [value]="listOfdata" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>VALUES</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.values }}</td>
+                <td>
+                    <i class="pi pi-pencil pointer" (click)="edit(product)" style="color: #dac917"></i>&nbsp;
+              
+                    <i class="pi pi-trash pointer" (click)="delete(product)" style="color: #ff0404"></i>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+
+<ng-template #noData>
+    <h4>No Records Found</h4>
+</ng-template>
